@@ -127,8 +127,8 @@ footer {
     width: 100%;
 }
 
-/* FAQ Section */
-.faq-container {
+/* FAQ and Guide Containers */
+.faq-container, .guide-container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
