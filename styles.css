@@ -63,14 +63,21 @@ section {
 
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
 }
 
 h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #34495e;
+    font-weight: normal;
 }
 
 /* Contact Form */
@@ -118,6 +125,114 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* FAQ Section */
+.faq-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #e9ecef;
+}
+
+.faq-question h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    color: #5c1616;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 1rem;
+    color: #5c1616;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.os-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid #2c3e50;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.os-link:hover {
+    color: #34495e;
+    border-bottom-color: #34495e;
+}
+
+/* Guide Sections */
+.guide-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.guide-section {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.guide-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.guide-section p {
+    color: #666;
+    line-height: 1.6;
 }
 
 /* Responsive Design */
