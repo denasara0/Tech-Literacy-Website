@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Calabri', sans-serif;
     line-height: 1.8;
     color: #333;
 }
@@ -134,14 +134,14 @@ footer {
     margin: 0 auto;
 }
 
-.faq-item {
+.faq-item, .guide-section {
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.faq-question {
+.faq-question, .guide-question {
     padding: 1rem;
     background-color: #f8f9fa;
     cursor: pointer;
@@ -151,11 +151,11 @@ footer {
     transition: background-color 0.3s;
 }
 
-.faq-question:hover {
+.faq-question:hover, .guide-question:hover {
     background-color: #e9ecef;
 }
 
-.faq-question h4 {
+.faq-question h4, .guide-question h3 {
     margin: 0;
     font-size: 1.1rem;
     color: #2c3e50;
@@ -163,29 +163,31 @@ footer {
 
 .toggle-icon {
     font-size: 1.5rem;
-    color: #5c1616;
+    color: #4b1111;
     transition: transform 0.3s;
 }
 
-.faq-answer {
+.faq-answer, .guide-answer {
     padding: 0;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 
-.faq-answer p {
+.faq-answer p, .guide-answer p {
     margin: 0;
     padding: 1rem;
-    color: #5c1616;
+    color: #4b1111;
 }
 
-.faq-item.active .faq-answer {
+.faq-item.active .faq-answer,
+.guide-section.active .guide-answer {
     max-height: 500px;
     padding: 1rem;
 }
 
-.faq-item.active .toggle-icon {
+.faq-item.active .toggle-icon,
+.guide-section.active .toggle-icon {
     transform: rotate(45deg);
 }
 
@@ -200,39 +202,6 @@ footer {
 .os-link:hover {
     color: #34495e;
     border-bottom-color: #34495e;
-}
-
-/* Guide Sections */
-.guide-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-.guide-section {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.guide-section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.guide-section h3 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.guide-section p {
-    color: #666;
-    line-height: 1.6;
 }
 
 /* Responsive Design */

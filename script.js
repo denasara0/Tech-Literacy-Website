@@ -1,16 +1,50 @@
-// FAQ Accordion functionality
-document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-        // Close all other items
-        document.querySelectorAll('.faq-item').forEach(otherItem => {
-            if (otherItem !== item) {
-                otherItem.classList.remove('active');
+// Toggle functionality for FAQ and Guide sections
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherIcon = otherItem.querySelector('.toggle-icon');
+                    if (otherIcon) otherIcon.textContent = '+';
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+            const icon = item.querySelector('.toggle-icon');
+            if (icon) {
+                icon.textContent = item.classList.contains('active') ? '-' : '+';
             }
         });
-        
-        // Toggle current item
-        item.classList.toggle('active');
+    });
+
+    // Handle Guide sections
+    document.querySelectorAll('.guide-section').forEach(section => {
+        const question = section.querySelector('.guide-question');
+        question.addEventListener('click', () => {
+            // Close all other guide sections in the same container
+            const container = section.closest('.guide-container');
+            if (container) {
+                container.querySelectorAll('.guide-section').forEach(otherSection => {
+                    if (otherSection !== section) {
+                        otherSection.classList.remove('active');
+                        const otherIcon = otherSection.querySelector('.toggle-icon');
+                        if (otherIcon) otherIcon.textContent = '+';
+                    }
+                });
+            }
+            
+            // Toggle current section
+            section.classList.toggle('active');
+            const icon = section.querySelector('.toggle-icon');
+            if (icon) {
+                icon.textContent = section.classList.contains('active') ? '-' : '+';
+            }
+        });
     });
 });
 
@@ -30,26 +64,12 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 
 // Form submission handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
-
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', formObject);
-        
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-    });
-}
+document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your form submission logic here
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+});
 
 // Add scroll event listener for header
 window.addEventListener('scroll', function() {
@@ -61,8 +81,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Add animation on scroll
-const sections = document.querySelectorAll('section');
+// Animation on scroll
 const observerOptions = {
     threshold: 0.1
 };
@@ -70,15 +89,11 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate');
         }
     });
 }, observerOptions);
 
-sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 }); 
